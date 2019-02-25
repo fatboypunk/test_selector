@@ -1,0 +1,28 @@
+require 'nokogiri'
+
+module TestSelector
+  module TestHelper
+    def self.test_selector(path, name = nil, value = nil)
+      underscore_path = path.gsub(%r{/|\.}, '_')
+
+      if name && value
+        "test-selector=_#{underscore_path}__#{name} test-value=#{value}"
+      elsif name
+        "test-selector=_#{underscore_path}__#{name}"
+      else
+        "test-selector=_#{underscore_path}"
+      end
+    end
+
+    def self.find_test_selector(html, selector)
+      test_selector = selector.split(" ").first
+      test_value = selector.split(" ").second
+      doc = Nokogiri::HTML(html).css("[#{test_selector}]")
+      if test_value
+         doc.css("[#{test_value}]").to_s
+      else
+        doc.to_s
+      end
+    end
+  end
+end
