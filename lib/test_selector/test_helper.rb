@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'nokogiri'
 
 module TestSelector
   module TestHelper
-
-    def test_selector(path, name=nil, value=nil)
+    def test_selector(path, name = nil, value = nil)
       underscore_path = path.gsub(%r{/|\.}, '_')
 
       if name && value
@@ -16,11 +17,11 @@ module TestSelector
     end
 
     def find_test_selector(html, selector)
-      test_selector = selector.split(" ").first
-      test_value = selector.split(" ").second
+      test_selector = selector.split(' ').first
+      test_value = selector.split(' ').second
       doc = Nokogiri::HTML(html).css("[#{test_selector}]")
       if test_value
-         doc.css("[#{test_value}]").to_s
+        doc.css("[#{test_value}]").to_s
       else
         doc.to_s
       end

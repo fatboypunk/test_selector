@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require 'test_selector/railtie'
-
 module TestSelector
   module HTMLHelper
-    def test_selector(name = nil, value=nil)
+    def test_selector(name = nil, value = nil)
       return if disable?
 
       called_by = caller
@@ -37,8 +35,6 @@ module TestSelector
       Rails.env == 'production'
     end
   end
-
 end
 
 ActionView::Base.send :include, TestSelector::HTMLHelper
-

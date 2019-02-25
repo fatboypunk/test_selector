@@ -26,7 +26,7 @@ class TestSelector::TestHelperTest < ActiveSupport::TestCase
 
   test 'finds the test-selector in a page with an added name' do
     html = '<html> <body><span test-selector="__some_long_path_html_erb__dummy"></span></body></html>'
-    test_selector = test_selector('/some/long/path.html.erb', "dummy")
+    test_selector = test_selector('/some/long/path.html.erb', 'dummy')
 
     assert find_test_selector(html, test_selector) == '<span test-selector="__some_long_path_html_erb__dummy"></span>'
   end
@@ -40,9 +40,8 @@ class TestSelector::TestHelperTest < ActiveSupport::TestCase
 
   test 'finds the specific one with value' do
     html = '<html> <body><span test-selector="__some_long_path_html_erb__dummy" test-value="2"></span><span test-selector="__some_long_path_html_erb__dummy"></span></body></html>'
-    test_selector = test_selector('/some/long/path.html.erb', "dummy", 2)
+    test_selector = test_selector('/some/long/path.html.erb', 'dummy', 2)
 
     assert find_test_selector(html, test_selector), '<span test-selector="__some_long_path_html_erb__dummy" test-value="2"></span>'
   end
 end
-
