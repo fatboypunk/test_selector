@@ -2,7 +2,8 @@ require 'nokogiri'
 
 module TestSelector
   module TestHelper
-    def self.test_selector(path, name = nil, value = nil)
+
+    def test_selector(path, name=nil, value=nil)
       underscore_path = path.gsub(%r{/|\.}, '_')
 
       if name && value
@@ -14,7 +15,7 @@ module TestSelector
       end
     end
 
-    def self.find_test_selector(html, selector)
+    def find_test_selector(html, selector)
       test_selector = selector.split(" ").first
       test_value = selector.split(" ").second
       doc = Nokogiri::HTML(html).css("[#{test_selector}]")
