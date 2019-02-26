@@ -8,7 +8,7 @@ After installing this gem the views have a helper method `test_selector` that
 can be used as:
 
 ```erb
-# app/views/some/view.erb
+<!--- app/views/some/view.erb --->
 <p <%= test_selector "description", 1 %>the description of entity 1</p>
 
 <p <%= test_selector "description", 2 %>the description of entity 2</p>
@@ -39,6 +39,7 @@ Add this line to your application's Gemfile:
 
 - dependencie: rails
 
+Add to `:development` and `:test` in the `Gemfile`
 ```ruby
 gem 'test_selector'
 ```
