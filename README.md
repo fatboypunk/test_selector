@@ -51,6 +51,8 @@ $ bundle
 
 `include` in the test framework you're using, for RSpec:
 ```erb
+require 'test_selector'
+
 RSpec.configure do |config|
   ...
 

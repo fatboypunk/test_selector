@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'nokogiri'
-
 module TestSelector
   module TestHelper
     def test_selector(path, name = nil, value = nil)
