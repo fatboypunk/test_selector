@@ -28,7 +28,7 @@ module TestSelector
 
       first_line = called_by.split('/n').first.first
       file_select = first_line.split('`').second
-      file_hash = first_line.split(' ').last
+      file_hash = file_select.split(' ').last
       file_under_path = "#{file_hash.split('_erb__').first}_erb"
     end
 
