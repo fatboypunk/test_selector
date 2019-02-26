@@ -37,9 +37,10 @@ end
 ## Installation
 Add this line to your application's Gemfile:
 
-- dependencie: rails
+- Dependencie: Rails
 
-Add to `:development` and `:test` in the `Gemfile`
+Add to the `Gemfile`
+
 ```ruby
 gem 'test_selector'
 ```
