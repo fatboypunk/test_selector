@@ -19,9 +19,9 @@ module TestSelector
       test_value = selector.split(' ').second
       doc = Nokogiri::HTML(html).css("[#{test_selector}]")
       if test_value
-        doc.css("[#{test_value}]").to_s
+        doc.css("[#{test_value}]")
       else
-        doc.to_s
+        doc
       end
     end
   end
