@@ -9,6 +9,7 @@ class TestSelector::TestHelperTest < ActiveSupport::TestCase
   test 'right value for 3 arguments' do
     assert_equal test_selector('/some/long/path.html.erb', 'dummy', 1), 'test-selector=__some_long_path_html_erb__dummy test-value=1'
   end
+
   test 'right value for 2 arguments' do
     assert_equal test_selector('/some/long/path.html.erb', 'dummy'), 'test-selector=__some_long_path_html_erb__dummy'
   end

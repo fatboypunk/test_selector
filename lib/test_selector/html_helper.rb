@@ -2,24 +2,35 @@
 
 module TestSelector
   module HTMLHelper
-    def test_selector(name = nil, value = nil)
+    def test(name = nil, value = nil)
       return if disable?
 
       called_by = caller
-      setup_test_selector(called_by, name, value)
+      raw setup_test(called_by, name, value)
+    end
+
+    def test_selector(name = nil)
+      return if disable?
+
+      called_by = caller
+      if name
+        "#{get_selector(called_by)}__#{name}"
+      else
+        get_selector(called_by)
+      end
     end
 
     private
 
-    def setup_test_selector(called_by, name = nil, value = nil)
+    def setup_test(called_by, name = nil, value = nil)
       return if disable?
 
       if name && value
-        "test-selector=#{get_selector(called_by)}__#{name} test-value=#{value}"
+        %(test-selector="#{get_selector(called_by)}__#{name}" test-value="#{value}")
       elsif name
-        "test-selector=#{get_selector(called_by)}__#{name}"
+        %(test-selector="#{get_selector(called_by)}__#{name}")
       else
-        "test-selector=#{get_selector(called_by)}"
+        %(test-selector="#{get_selector(called_by)}")
       end
     end
 

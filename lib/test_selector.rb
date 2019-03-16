@@ -8,4 +8,3 @@ require 'test_selector/html_helper'
 
 module TestSelector
 end
-
