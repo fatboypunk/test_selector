@@ -3,6 +3,13 @@ All notable changes to this project.
 
 ## [Unreleased]
 
+## [0.1.1] - 2019-03-17
+
+### Added
+- `get_selector` method in the tests will now return the string of the
+    selection.
+
+
 ## [0.1.0] - 2019-03-17
 
 ### Added
