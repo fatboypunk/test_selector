@@ -3,14 +3,18 @@
 module TestSelector
   module TestHelper
     def test_selector(path, name = nil, value = nil)
+      "test-selector=#{get_selector(path, name, value)}"
+    end
+
+    def get_selector(path, name = nil, value = nil)
       underscore_path = path.gsub(%r{/|\.}, '_')
 
       if name && value
-        "test-selector=_#{underscore_path}__#{name} test-value=#{value}"
+        "_#{underscore_path}__#{name} test-value=#{value}"
       elsif name
-        "test-selector=_#{underscore_path}__#{name}"
+        "_#{underscore_path}__#{name}"
       else
-        "test-selector=_#{underscore_path}"
+        "_#{underscore_path}"
       end
     end
 
